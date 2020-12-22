@@ -1,16 +1,11 @@
 import { useState } from 'react'
 
-function PrettyPrint (props) {
-  return <pre>{JSON.stringify(props.jsonObj, null, 2)}</pre>
-}
-
 const FormCreateGift = ({recipient, setRecipient, header, setHeader, headline, setHeadline}) => {
 
   const [id, setId] = useState(null)
 
   const handleSubmit = async e => {
     e.preventDefault()
-    console.log('form submited')
     const response = await fetch('/api/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -22,7 +17,6 @@ const FormCreateGift = ({recipient, setRecipient, header, setHeader, headline, s
   }
 
   return (
-    <>
     <form onSubmit={e => handleSubmit(e)} className='space-y-8 m-8 p-8 text-center rounded-xl shadow-2xl'>
       <div className='block flex align-middle justify-center'>
         <label htmlFor='recipient'>
@@ -52,19 +46,15 @@ const FormCreateGift = ({recipient, setRecipient, header, setHeader, headline, s
         <input type="submit" value="Sauvegarder" className='bg-red-700 rounded text-white p-1.5'/>
       </div>
 
-      <PrettyPrint jsonObj={{ recipient, header, headline }}/>
-
       {
         id && <div>
-          Votre carte cadeau est accessible à l'url suivante: {process.env.NEXT_PUBLIC_APP_URL}/{id}
+          Votre carte cadeau est accessible à l'url suivante:
+          <a href={`${process.env.NEXT_PUBLIC_APP_URL}/${id}`}>{`${process.env.NEXT_PUBLIC_APP_URL}/${id}`}</a>
         </div>
       }
 
     </form>
-
-  </>
   )
-
 }
 
 export default FormCreateGift
