@@ -1,6 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Vous pouvez adapter le contenu du bouton et du cadeau avec vos propres paramètres:
 
-## Getting Started
+- `recipient`: Le nom du destinataire du cadeau qui sera affiché dans le bouton
+- `header`: La première ligne du cadeau
+- `headline`: Le mot clé le plus important du cadeau qui est surligné
+
+Exemple: `https://mamik.vercel.app?header=3 séances de&headline=couture&recipient=Maman`
+
+
+## Installation
 
 First, run the development server:
 
@@ -11,6 +18,3 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
