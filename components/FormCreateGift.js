@@ -1,19 +1,33 @@
 import { useState } from 'react'
 import absoluteUrl from 'next-absolute-url'
+import { FaSpinner } from 'react-icons/fa'
 
 const FormCreateGift = ({origin, recipient, setRecipient, header, setHeader, headline, setHeadline}) => {
   const [id, setId] = useState(null)
+  const [isLoading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const response = await fetch('/api/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ recipient, header, headline }),
-    })
-    const gift = await response.json();
-    console.log(gift)
-    setId(gift.id)
+    if (isLoading) {
+      return
+    }
+    setError(null)
+    setLoading(true)
+    try {
+      const response = await fetch('/api/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ recipient, header, headline }),
+      })
+      const gift = await response.json()
+      setId(gift.id)
+      setLoading(false)
+    } catch (e) {
+      setLoading(false)
+      console.error(e)
+      setError(`Il y a eu une erreur lors de la sauvegarde de votre carte cadeau: ${e}`)
+    }
   }
 
   return (
@@ -42,16 +56,31 @@ const FormCreateGift = ({origin, recipient, setRecipient, header, setHeader, hea
         <input name='headline' className='border-2' type="text" value={headline} onChange={e => setHeadline(e.target.value)}/>
       </div>
 
-      <div className='block'>
-        <input type="submit" value="Sauvegarder" className='bg-red-700 rounded text-white p-1.5'/>
+      <div className='block flex align-middle justify-center'>
+        <button type="submit" className='bg-red-700 rounded text-white p-1.5 flex'>
+          {isLoading && <>
+          <svg className="animate-spin h-5 w-5 mr-3">
+            <FaSpinner size={20}/>
+          </svg>
+          Préparation de votre carte cadeau...
+          </>}
+          {!isLoading && <span>Sauvegarder</span>}
+        </button>
       </div>
 
       {
-        id && <div>
-          Votre carte cadeau est accessible à l'url suivante:
-          <a href={`${origin}/${id}`}>{`${origin}/${id}`}</a>
+        id && <div className='bg-green-700 rounded-xl shadow-2xl text-white p-2'>
+          Votre carte cadeau est accessible à l'url suivante: <br/>
+          <a className='font-bold' href={`${origin}/${id}`}>{`${origin}/${id}`}</a>
         </div>
       }
+
+      {
+        error && <div className='bg-red-700 rounded-xl shadow-2xl text-white p-2'>
+          {error}
+        </div>
+      }
+
 
     </form>
   )

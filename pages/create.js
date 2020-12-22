@@ -10,14 +10,14 @@ const Create = ({ origin }) => {
 
   return (
     <>
-      <div className='grid gap-2 grid-cols-2'>
-        <div className='h-screen flex flex-1 align-middle justify-center'>
+      <div className='grid gap-2 md:grid-cols-2'>
+        <div className='h-screen align-middle justify-center'>
           <FormCreateGift origin={origin} recipient={recipient} setRecipient={setRecipient}
                           header={header} setHeader={setHeader}
                           headline={headline} setHeadline={setHeadline}/>
         </div>
 
-        <div className='h-screen bg-blue-500'>
+        <div className='h-screen bg-blue-500 hidden md:block'>
           <GiftContainer recipient={recipient} header={header} headline={headline}/>
         </div>
 
