@@ -13,7 +13,7 @@ export default function Home() {
         <title>Cadeau Mamik</title>
       </Head>
 
-      <main className='w-screen flex align-middle items-center justify-center bg-center bg-cover' style={{ backgroundImage: 'url(background.jpg)' }}>
+      <main className='w-screen flex align-middle items-center justify-center bg-center bg-cover' style={{ backgroundImage: 'url(background.webp)' }}>
 
           {!isClicked && <GiftButton onClick={() => {
             console.log('isClicked'); setClicked(true);
