@@ -1,18 +1,9 @@
-import Head from 'next/head'
 import { GiftContainer } from '../components/GiftContainer'
 
 // noinspection JSUnusedGlobalSymbols
-export default function Home() {
+const Home = ({ recipient = 'Mamik', header = '3 séances de', headline = 'dancing' }) =>
+  <GiftContainer recipient={recipient} header={header} headline={headline}/>
 
-  return (
-    <div className='h-screen flex align-middle justify-center'>
-      <Head>
-        <title>Cadeau Mamik</title>
-      </Head>
+Home.getInitialProps = ({ query }) => query
 
-      <main>
-        <GiftContainer giftHeader="3 séances de" giftHeadline="couture" />
-      </main>
-    </div>
-  )
-}
+export default Home
