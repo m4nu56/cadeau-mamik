@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import absoluteUrl from 'next-absolute-url'
 
-const FormCreateGift = ({recipient, setRecipient, header, setHeader, headline, setHeadline}) => {
-
+const FormCreateGift = ({origin, recipient, setRecipient, header, setHeader, headline, setHeadline}) => {
   const [id, setId] = useState(null)
 
   const handleSubmit = async e => {
@@ -49,7 +49,7 @@ const FormCreateGift = ({recipient, setRecipient, header, setHeader, headline, s
       {
         id && <div>
           Votre carte cadeau est accessible à l'url suivante:
-          <a href={`${process.env.NEXT_PUBLIC_APP_URL}/${id}`}>{`${process.env.NEXT_PUBLIC_APP_URL}/${id}`}</a>
+          <a href={`${origin}/${id}`}>{`${origin}/${id}`}</a>
         </div>
       }
 
