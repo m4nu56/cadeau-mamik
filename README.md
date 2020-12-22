@@ -18,6 +18,8 @@ Exemple: `https://mamik.vercel.app?header=3 séances de&headline=couture&recipie
 
 The project runs with [nextJS](https://nextjs.org), and the Postgres database is hosted on [Heroku](https://heroku.com). 
 
+No personal information is collected. 
+
 ## Installation
 
 First, run the development server:
