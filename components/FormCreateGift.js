@@ -64,7 +64,7 @@ const FormCreateGift = ({origin, recipient, setRecipient, header, setHeader, hea
           </svg>
           Préparation de votre carte cadeau...
           </>}
-          {!isLoading && <span>Sauvegarder</span>}
+          {!isLoading && <span>Créer la carte cadeau</span>}
         </button>
       </div>
 

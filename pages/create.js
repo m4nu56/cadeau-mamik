@@ -4,9 +4,9 @@ import { useState } from 'react'
 import absoluteUrl from 'next-absolute-url'
 
 const Create = ({ origin }) => {
-  const [recipient, setRecipient] = useState('Mamik')
-  const [header, setHeader] = useState('Bon pour un cadeau')
-  const [headline, setHeadline] = useState('Voiture')
+  const [recipient, setRecipient] = useState('Maman')
+  const [header, setHeader] = useState('Bon pour un')
+  const [headline, setHeadline] = useState('Vélo Vertex V2')
 
   return (
     <>
