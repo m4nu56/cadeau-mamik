@@ -4,7 +4,7 @@ Si vous aussi vous vous trouvé loin de vos proches et complètement à la bourr
 
 ## Utilisation
 
-Accéder à la page `/create` pour saisir les paramètres de la carte cadeau et copier l'URL qui est généré pour l'envoyer à vos proches. 
+Accéder à la page [/create](https://gift-card.app/create) pour saisir les paramètres de la carte cadeau et copier l'URL qui est généré pour l'envoyer à vos proches. 
 
 Ou sinon vous pouvez adapter le contenu du bouton et du cadeau avec vos propres paramètres:
 
@@ -12,7 +12,7 @@ Ou sinon vous pouvez adapter le contenu du bouton et du cadeau avec vos propres 
 - `header`: La première ligne du cadeau
 - `headline`: Le mot clé le plus important du cadeau qui est surligné
 
-Exemple: `https://mamik.vercel.app?header=3 séances de&headline=couture&recipient=Maman`
+Exemple: [https://gift-card.app/?header=3%20s%C3%A9ances%20de&headline=couture&recipient=Maman](https://gift-card.app/?`header`=3 séances&`headline`=couture&`recipient`=Maman)
 
 ## Stack
 
