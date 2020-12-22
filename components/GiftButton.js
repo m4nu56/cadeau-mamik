@@ -4,10 +4,7 @@ export default function GiftButton ({ onClick }) {
     e.preventDefault
     e.target.classList.remove('animate')
     e.target.classList.add('animate')
-    setTimeout(function () {
-      e.target.classList.remove('animate')
-      onClick();
-    }, 700)
+    setTimeout(() => onClick(), 700)
   }
 
   return (
